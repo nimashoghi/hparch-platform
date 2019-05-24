@@ -1,0 +1,9 @@
+version: "3.1"
+services:
+    research:
+        image: nimashoghi/python:latest
+        command: sleep infinity
+        volumes:
+            - ..:/workspace
+            - ~/.gitconfig:/root/.gitconfig
+            - /var/run/docker.sock:/var/run/docker.sock

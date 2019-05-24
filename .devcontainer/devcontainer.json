@@ -1,0 +1,8 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+    "name": "Python 3",
+    "workspaceFolder": "/workspace",
+    "dockerComposeFile": "docker-compose.yaml",
+    "service": "research",
+    "extensions": ["ms-python.python", "visualstudioexptteam.vscodeintellicode"]
+}
