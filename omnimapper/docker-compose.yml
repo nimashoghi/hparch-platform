@@ -1,0 +1,7 @@
+version: "3.1"
+services:
+    omnimapper:
+        image: hbrs/slam
+        environment:
+            - DISPLAY={YOUR_IP}:0.0
+        command: sleep infinity
