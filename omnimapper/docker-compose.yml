@@ -1,9 +1,0 @@
-version: "3.1"
-services:
-    omnimapper:
-        image: hbrs/slam
-        environment:
-            - DISPLAY=143.215.124.17:0.0
-        command: sleep infinity
-        volumes:
-            - ./LSD_room.bag:/root/LSD_room.bag

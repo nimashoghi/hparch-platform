@@ -1,0 +1,8 @@
+version: "3.1"
+services:
+    slam:
+        image: nimashoghi/orb_slam2
+        environment:
+            - DISPLAY=143.215.121.224:0.0
+        volumes:
+            - ../data/roomba_output:/data
