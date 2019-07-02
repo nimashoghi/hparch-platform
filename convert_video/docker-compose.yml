@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+    convert_video:
+        build: .
+        volumes:
+            - ./data/images:/app/input
+            - ./data/images/rgb.txt:/app/output.txt
+        environment:
+            IMAGE_EXTENSION: .jpg
+            FPS: "30"
+# docker run -it -v C:/Users/nimas/Downloads/video_images:/app/input -v C:/Users/nimas/Downloads/rgb.txt:/app/output.txt -e "IMAGE_EXTENSION=.jpg" -e "FPS=30" nimashoghi/convert_video

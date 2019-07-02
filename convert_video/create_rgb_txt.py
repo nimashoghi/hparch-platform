@@ -13,15 +13,18 @@ input_path = sys.argv[1]
 output_path = sys.argv[2]
 fps = int(sys.argv[3])
 extension = sys.argv[4] or "jpg"
+
+
 time_delta = 1 / fps
 start_time = 0
 
 lines = []
-for i, path in enumerate(glob(f"{input_path}/*.{extension}")):
+for i, path in enumerate(glob(f"{input_path}/*{extension}")):
     lines.append(f"{start_time + time_delta * i} {path}")
 
 with open(output_path, "w") as f:
     for line in lines:
         f.write(f"{line}\n")
+        print(f"{line}\n")
 
-print(f"Successfully wrote to '{output_path}'")
+# print(f"Successfully wrote to '{output_path}'")
