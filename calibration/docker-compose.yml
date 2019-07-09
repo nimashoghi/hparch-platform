@@ -1,0 +1,13 @@
+version: "3.1"
+services:
+    calibration:
+        build:
+            context: .
+            args:
+                # SLAM_BUILD_ESSENTIALS_IMAGE: m03geek/ffmpeg-opencv
+                SLAM_BUILD_ESSENTIALS_VERSION: xenial-arm64
+        environment:
+            - DISPLAY=192.168.0.109:0.0
+        volumes:
+            - "./calib/:/output"
+            - "./assets/config.xml:/app/assets/config.xml"

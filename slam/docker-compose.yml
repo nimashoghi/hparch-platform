@@ -1,8 +1,9 @@
 version: "3.1"
 services:
     slam:
-        image: nimashoghi/orb_slam2
+        image: nimashoghi/orb_slam2:0.0.1-live-stream
+        command: "http://192.168.0.116:8080/?action=stream"
         environment:
-            - DISPLAY=192.168.1.32:0.0
+            - DISPLAY=192.168.0.109:0.0
         volumes:
-            - ../data/roomba_video:/data
+            - "../calibration/calib/:/data"

@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu
+FROM nimashoghi/raspbian:jessie
 
 RUN apt-get update \
     && apt-get install --yes git-core cmake libjpeg8-dev gcc g++
@@ -14,4 +14,4 @@ WORKDIR /app/mjpg-streamer/mjpg-streamer-experimental
 
 ENV LD_LIBRARY_PATH=.
 
-ENTRYPOINT ["mjpg-streamer"]
+ENTRYPOINT ["./mjpg_streamer"]
