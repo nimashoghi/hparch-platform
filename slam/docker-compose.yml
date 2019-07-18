@@ -1,9 +1,23 @@
 version: "3.1"
 services:
-    slam:
+    slam_dev:
         image: nimashoghi/orb_slam2:0.0.1-live-stream
-        command: "http://192.168.0.116:8080/?action=stream"
+        entrypoint: /bin/bash -c 'sleep infinity'
         environment:
-            - DISPLAY=192.168.0.109:0.0
+            - DISPLAY=192.168.0.113:0.0
         volumes:
-            - "../calibration/calib/:/data"
+            - "./main.cc:/root/Examples/Monocular/mono_tum.cc"
+            - ../data/roomba_video/:/data
+    # slam_live:
+    #     image: nimashoghi/orb_slam2:0.0.1-live-stream
+    #     command: "http://192.168.0.116:8080/?action=stream"
+    #     environment:
+    #         - DISPLAY=192.168.0.113:0.0
+    #     volumes:
+    #         - "../calibration/calib/:/data"
+    # slam_video:
+    #     image: nimashoghi/orb_slam2:0.0.1-offline
+    #     environment:
+    #         - DISPLAY=192.168.0.113:0.0
+    #     volumes:
+    #         - ../data/roomba_video/:/data

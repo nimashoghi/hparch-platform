@@ -5,9 +5,9 @@ services:
             context: .
             args:
                 # SLAM_BUILD_ESSENTIALS_IMAGE: m03geek/ffmpeg-opencv
-                SLAM_BUILD_ESSENTIALS_VERSION: xenial-arm64
+                SLAM_BUILD_ESSENTIALS_VERSION: latest
         environment:
-            - DISPLAY=192.168.0.109:0.0
+            - DISPLAY=192.168.0.113:0.0
         volumes:
             - "./calib/:/output"
             - "./assets/config.xml:/app/assets/config.xml"

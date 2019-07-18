@@ -13,5 +13,3 @@
 Make sure to change `1280x720` and `/dev/video0` to reflect your video resolution and Linux device file path, respectively.
 
 #### Visit the URL `http://{RASPBERRY_PI_LOCAL_IP}:8080/?action=stream` in your browser
-
-# Add preference option for record directory

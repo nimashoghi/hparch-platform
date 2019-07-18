@@ -1,3 +1,7 @@
+# preparing enironment
+
+`sudo apt-get install -y build-essential libssl-dev libffi-dev`
+
 # installing docker on pi
 
 https://howchoo.com/g/nmrlzmq1ymn/how-to-install-docker-on-your-raspberry-pi
