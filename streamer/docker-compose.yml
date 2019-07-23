@@ -1,0 +1,14 @@
+version: "3.1"
+services:
+    video0:
+        image: nimashoghi/streamer:0.0.2
+        privileged: true
+        ports:
+            - "8080:8080"
+        command: -i 'input_uvc.so --device /dev/video0' -o output_http.so
+    video1:
+        image: nimashoghi/streamer:0.0.2
+        privileged: true
+        ports:
+            - "8081:8080"
+        command: -i 'input_uvc.so --device /dev/video1' -o output_http.so

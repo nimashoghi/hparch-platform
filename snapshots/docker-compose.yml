@@ -1,0 +1,6 @@
+version: "3.1"
+services:
+    snapshots:
+        build: .
+        volumes:
+            - "./output/:/output/"

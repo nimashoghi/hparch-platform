@@ -1,13 +1,40 @@
 version: "3.1"
 services:
-    calibration:
-        build:
-            context: .
-            args:
-                # SLAM_BUILD_ESSENTIALS_IMAGE: m03geek/ffmpeg-opencv
-                SLAM_BUILD_ESSENTIALS_VERSION: latest
+    # calibration_mono:
+    #     build:
+    #         context: .
+    #         args:
+    #             # SLAM_BUILD_ESSENTIALS_IMAGE: m03geek/ffmpeg-opencv
+    #             SLAM_BUILD_ESSENTIALS_VERSION: latest
+    #     environment:
+    #         - DISPLAY=192.168.0.113:0.0
+    #     volumes:
+    #         - "./calib/:/output"
+    #         - "./assets/config.xml:/app/assets/config.xml"
+    # calibration_stereo_right:
+    #     build: .
+    #     environment:
+    #         - DISPLAY=192.168.0.114:0.0
+    #     volumes:
+    #         - "./calib_stereo_right/:/output"
+    #         - "./assets/:/app/assets/"
+    #         - "../snapshots/output/:/app/assets/stereo_input/"
+    #     command: ./calibration /app/assets/config_right.xml
+    # calibration_stereo_left:
+    #     build: .
+    #     environment:
+    #         - DISPLAY=192.168.0.114:0.0
+    #     volumes:
+    #         - "./calib_stereo_left/:/output"
+    #         - "./assets/:/app/assets/"
+    #         - "../snapshots/output/:/app/assets/stereo_input/"
+    #     command: ./calibration /app/assets/config_left.xml
+    calibration_stereo:
+        build: .
         environment:
-            - DISPLAY=192.168.0.113:0.0
+            - DISPLAY=192.168.0.114:0.0
         volumes:
-            - "./calib/:/output"
-            - "./assets/config.xml:/app/assets/config.xml"
+            - "./calib_stereo/:/output"
+            - "./assets/:/app/assets/"
+            - "../snapshots/output/:/app/assets/stereo_input/"
+        command: ./calibration_stereo /app/assets/stereo_calib.xml

@@ -1,5 +1,5 @@
-ARG SLAM_BUILD_ESSENTIALS_IMAGE=nimashoghi/slam_build_essentials
-ARG SLAM_BUILD_ESSENTIALS_VERSION
+ARG SLAM_BUILD_ESSENTIALS_IMAGE=nimashoghi/orb-slam2-runtime-deps
+ARG SLAM_BUILD_ESSENTIALS_VERSION=latest
 FROM ${SLAM_BUILD_ESSENTIALS_IMAGE}:${SLAM_BUILD_ESSENTIALS_VERSION}
 
 # install dependencies
@@ -16,4 +16,4 @@ RUN mkdir build \
 
 WORKDIR /app/build
 
-CMD ./calibration /app/assets/config.xml
+# CMD ./calibration /app/assets/config.xml
