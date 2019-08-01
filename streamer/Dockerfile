@@ -1,17 +1,21 @@
-FROM nimashoghi/raspbian:jessie
+FROM arm32v6/alpine
 
-RUN apt-get update \
-    && apt-get install --yes git-core cmake libjpeg8-dev gcc g++
+# Build dependencies
+RUN apk add --no-cache --virtual .build-deps alpine-sdk cmake git jpeg-dev linux-headers raspberrypi-dev
 
-WORKDIR /app
+# Runtime dependencies
+RUN apk add --no-cache jpeg raspberrypi raspberrypi-libs
 
+WORKDIR /build
 RUN git clone https://github.com/jacksonliam/mjpg-streamer.git \
     && cd mjpg-streamer/mjpg-streamer-experimental \
     && make \
-    && make install
+    && make install \
+    && rm -rf /build
 
-WORKDIR /app/mjpg-streamer/mjpg-streamer-experimental
+RUN apk del .build-deps
 
-ENV LD_LIBRARY_PATH=.
+WORKDIR /
+ENV LD_LIBRARY_PATH=/opt/vc/lib/
 
-ENTRYPOINT ["./mjpg_streamer"]
+ENTRYPOINT ["mjpg_streamer"]

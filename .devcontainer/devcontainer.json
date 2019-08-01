@@ -3,5 +3,9 @@
     "workspaceFolder": "/workspace",
     "dockerComposeFile": "docker-compose.yml",
     "service": "research",
-    "extensions": ["ms-python.python", "visualstudioexptteam.vscodeintellicode"]
+    "extensions": [
+        "ms-python.python",
+        "visualstudioexptteam.vscodeintellicode",
+        "yzhang.markdown-all-in-one"
+    ]
 }
