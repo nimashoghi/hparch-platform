@@ -19,7 +19,7 @@ RUN wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip \
     && mkdir build \
     && cd build \
     && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .. \
-    && make -j4 \
+    && make -j \
     && make install
 
 # install Pangolin
@@ -29,7 +29,7 @@ RUN git clone https://github.com/stevenlovegrove/Pangolin \
     && mkdir build \
     && cd build \
     && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .. \
-    && make -j4 \
+    && make -j \
     && make install
 
 COPY ./Thirdparty/ /build
