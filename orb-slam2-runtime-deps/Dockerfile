@@ -13,12 +13,12 @@ RUN apt-get update && \
 
 # install OpenCV
 WORKDIR /build/opencv
-RUN wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip \
+RUN wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.0.zip \
     && unzip opencv.zip \
-    && cd opencv-3.1.0/ \
+    && cd opencv-3.4.0/ \
     && mkdir build \
     && cd build \
-    && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local .. \
+    && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D BUILD_TESTS=OFF -D BUILD_PERF_TESTS=OFF .. \
     && make -j \
     && make install
 
